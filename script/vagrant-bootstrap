@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+# This script prepares the system to run chef.
+#
+
+set -e
+
+has() {
+  which $1 >/dev/null 2>&1
+  return $?
+}
+
+# Always update the indexes to not get 404s when installing new packages
+apt-get update
+
+if ! has chef-solo ; then
+  wget -nv -c https://www.opscode.com/chef/install.sh
+  chmod +x install.sh
+  ./install.sh -v 11.4.4
+fi
