@@ -7,5 +7,5 @@ libxml2           apt runtime
 libxslt1-dev      apt build
 libxslt1.1        apt runtime
 git               apt build
-bundler           gem build runtime
+bundler           gem build
 berkshelf         gem build
